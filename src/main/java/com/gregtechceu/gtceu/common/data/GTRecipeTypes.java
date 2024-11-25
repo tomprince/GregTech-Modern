@@ -28,6 +28,7 @@ import com.gregtechceu.gtceu.common.recipe.condition.RockBreakerCondition;
 import com.gregtechceu.gtceu.data.recipe.RecipeHelper;
 import com.gregtechceu.gtceu.data.recipe.builder.GTRecipeBuilder;
 import com.gregtechceu.gtceu.integration.kjs.GTRegistryInfo;
+import com.gregtechceu.gtceu.utils.FormattingUtil;
 import com.gregtechceu.gtceu.utils.ResearchManager;
 
 import com.lowdragmc.lowdraglib.utils.LocalizationUtils;
@@ -46,7 +47,6 @@ import net.minecraftforge.fml.ModLoader;
 import com.simibubi.create.AllBlocks;
 import org.jetbrains.annotations.Nullable;
 
-import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -673,7 +673,7 @@ public class GTRecipeTypes {
             .setSound(GTSoundEntries.ARC)
             .setOffsetVoltageText(true)
             .addDataInfo(data -> LocalizationUtils.format("gtceu.recipe.eu_to_start",
-                    NumberFormat.getCompactNumberInstance().format(data.getLong("eu_to_start")),
+                    FormattingUtil.formatCompactNumbers(data.getLong("eu_to_start")),
                     FusionReactorMachine.getFusionTier(data.getLong("eu_to_start"))));
 
     public static final GTRecipeType DUMMY_RECIPES = register("dummy", DUMMY)
