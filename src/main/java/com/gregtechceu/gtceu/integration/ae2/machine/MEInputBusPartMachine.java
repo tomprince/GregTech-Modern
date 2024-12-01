@@ -190,6 +190,7 @@ public class MEInputBusPartMachine extends MEBusPartMachine
         }
         tag.putByte("GhostCircuit",
                 (byte) IntCircuitBehaviour.getCircuitConfiguration(circuitInventory.getStackInSlot(0)));
+        tag.putBoolean("DistinctBuses", isDistinct());
         return tag;
     }
 
@@ -208,6 +209,9 @@ public class MEInputBusPartMachine extends MEBusPartMachine
         }
         if (tag.contains("GhostCircuit")) {
             circuitInventory.setStackInSlot(0, IntCircuitBehaviour.stack(tag.getByte("GhostCircuit")));
+        }
+        if (tag.contains("DistinctBuses")) {
+            setDistinct(tag.getBoolean("DistinctBuses"));
         }
     }
 }
