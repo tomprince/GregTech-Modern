@@ -44,7 +44,13 @@ public class BlockTagLoader {
                 .add(TagEntry.element(GTMachines.WOODEN_DRUM.getId()))
                 .add(TagEntry.element(GTMachines.WOODEN_CRATE.getId()));
 
-        provider.addTag(CustomTags.CLEANROOM_FLOORS);
+        provider.addTag(CustomTags.CLEANROOM_FLOORS)
+                .addOptionalTag(new ResourceLocation("elevatorid:elevators"))
+                .addOptional(new ResourceLocation("enderio:travel_anchor"))
+                .addOptional(new ResourceLocation("rftoolsutility:matter_transmitter"))
+                .addOptional(new ResourceLocation("rftoolsutility:matter_receiver"))
+                .addOptional(new ResourceLocation("rftoolsutility:dialing_device"))
+                .addOptional(new ResourceLocation("travelanchors:travel_anchor"));
     }
 
     private static void create(RegistrateTagsProvider<Block> provider, TagPrefix prefix, Material material,
