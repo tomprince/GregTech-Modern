@@ -2464,6 +2464,7 @@
   "gtceu.jei.ore_vein_diagram.weight": "Weight: %s",
   "gtceu.jei.programmed_circuit": "Programmed Circuit Page",
   "gtceu.journeymap.options.layers": "Prospection layers",
+  "gtceu.journeymap.options.layers.bedrock_fluids": "Show Bedrock Fluid Veins",
   "gtceu.journeymap.options.layers.ore_veins": "Show Ore Veins",
   "gtceu.key.armor_charging": "Armor Charging to Inventory Toggle",
   "gtceu.key.armor_hover": "Armor Hover Toggle",
