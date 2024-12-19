@@ -526,11 +526,15 @@ public class Material implements Comparable<Material> {
      * @since GTCEu 2.0.0
      */
     @RemapPrefixForJS("kjs$")
+    @Accessors(fluent = true)
     public static class Builder extends BuilderBase<Material> {
 
         private final MaterialInfo materialInfo;
         private final MaterialProperties properties;
         private final MaterialFlags flags;
+
+        @Setter
+        private String formula = null;
 
         /*
          * The temporary list of components for this Material.
@@ -1237,6 +1241,9 @@ public class Material implements Comparable<Material> {
             }
 
             var mat = new Material(materialInfo, properties, flags);
+            if (formula != null) {
+                mat.setFormula(formula);
+            }
             materialInfo.verifyInfo(properties, averageRGB);
             mat.registerMaterial();
             return mat;
