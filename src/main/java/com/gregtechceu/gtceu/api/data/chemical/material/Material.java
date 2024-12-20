@@ -8,6 +8,7 @@ import com.gregtechceu.gtceu.api.data.chemical.material.info.MaterialIconSet;
 import com.gregtechceu.gtceu.api.data.chemical.material.properties.*;
 import com.gregtechceu.gtceu.api.data.chemical.material.stack.MaterialStack;
 import com.gregtechceu.gtceu.api.data.medicalcondition.MedicalCondition;
+import com.gregtechceu.gtceu.api.data.tag.TagPrefix;
 import com.gregtechceu.gtceu.api.data.tag.TagUtil;
 import com.gregtechceu.gtceu.api.fluids.FluidBuilder;
 import com.gregtechceu.gtceu.api.fluids.FluidState;
@@ -531,6 +532,7 @@ public class Material implements Comparable<Material> {
         private final MaterialInfo materialInfo;
         private final MaterialProperties properties;
         private final MaterialFlags flags;
+        private Set<TagPrefix> ignoredTagPrefixes = null;
 
         /*
          * The temporary list of components for this Material.
@@ -1010,6 +1012,17 @@ public class Material implements Comparable<Material> {
             return this;
         }
 
+        /**
+         * Add {@link TagPrefixes} to be ignored by this Material.<br>
+         */
+        public Builder ignoredTagPrefixes(TagPrefix... prefixes) {
+            if (this.ignoredTagPrefixes == null) {
+                this.ignoredTagPrefixes = new HashSet<>();
+            }
+            this.ignoredTagPrefixes.addAll(Arrays.asList(prefixes));
+            return this;
+        }
+
         public Builder element(Element element) {
             this.materialInfo.element = element;
             return this;
@@ -1239,6 +1252,9 @@ public class Material implements Comparable<Material> {
             var mat = new Material(materialInfo, properties, flags);
             materialInfo.verifyInfo(properties, averageRGB);
             mat.registerMaterial();
+            if (ignoredTagPrefixes != null) {
+                ignoredTagPrefixes.forEach(p -> p.setIgnored(mat));
+            }
             return mat;
         }
 
