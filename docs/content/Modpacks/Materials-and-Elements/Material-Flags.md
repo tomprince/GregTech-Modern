@@ -37,6 +37,7 @@ can influence how the material behaves, as well as which items are generated for
 - `GENERATE_SMALL_GEAR`
 - `GENERATE_SPRING`
 - `GENERATE_SPRING_SMALL`
+- `NO_GENERATE_DUST_PILES`
 
 
 ## Other Flags

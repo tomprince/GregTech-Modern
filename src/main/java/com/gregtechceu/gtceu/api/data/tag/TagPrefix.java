@@ -339,7 +339,7 @@ public class TagPrefix {
             .materialIconType(MaterialIconType.dustSmall)
             .unificationEnabled(true)
             .generateItem(true)
-            .generationCondition(hasDustProperty);
+            .generationCondition(mat -> mat.hasProperty(PropertyKey.DUST) && !mat.hasFlag(MaterialFlags.NO_GENERATE_DUST_PILES));
 
     // 1/9th of a Dust.
     public static final TagPrefix dustTiny = new TagPrefix("tinyDust")
@@ -351,7 +351,7 @@ public class TagPrefix {
             .materialIconType(MaterialIconType.dustTiny)
             .unificationEnabled(true)
             .generateItem(true)
-            .generationCondition(hasDustProperty);
+            .generationCondition(mat -> mat.hasProperty(PropertyKey.DUST) && !mat.hasFlag(MaterialFlags.NO_GENERATE_DUST_PILES));
 
     // Dust with impurities. 1 Unit of Main Material and 1/9 - 1/4 Unit of secondary Material
     public static final TagPrefix dustImpure = new TagPrefix("impureDust")

@@ -538,7 +538,7 @@ public class UnknownCompositionMaterials {
         Lapotron = new Material.Builder(GTCEu.id("lapotron"))
                 .gem()
                 .color(0x7497ea).secondaryColor(0x1c0b39).iconSet(DIAMOND)
-                .flags(NO_UNIFICATION)
+                .flags(NO_UNIFICATION, NO_GENERATE_DUST_PILES)
                 .buildAndRegister();
 
         TreatedWood = new Material.Builder(GTCEu.id("treated_wood"))

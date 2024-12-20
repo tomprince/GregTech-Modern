@@ -130,6 +130,14 @@ public class MaterialFlags {
             .build();
 
     /**
+     * Prevent generating small/tiny piles of dust for this material.
+     */
+    public static final MaterialFlag NO_GENERATE_DUST_PILES = new MaterialFlag.Builder(
+            "no_generate_dust_piles")
+            .requireProps(PropertyKey.DUST)
+            .build();
+
+    /**
      * This will prevent material from creating Shapeless recipes for dust to block and vice versa
      * Also preventing extruding and alloy smelting recipes via SHAPE_EXTRUDING/MOLD_BLOCK
      */
