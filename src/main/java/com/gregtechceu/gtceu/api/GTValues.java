@@ -6,7 +6,10 @@ import net.minecraft.util.RandomSource;
 
 import java.time.LocalDate;
 import java.util.Arrays;
+import java.util.Map;
 import java.util.function.Supplier;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 import static net.minecraft.ChatFormatting.*;
 
@@ -141,6 +144,9 @@ public class GTValues {
      */
     public static final String[] VN = new String[] { "ULV", "LV", "MV", "HV", "EV", "IV", "LuV", "ZPM", "UV", "UHV",
             "UEV", "UIV", "UXV", "OpV", "MAX" };
+
+    public static final Map<String, Integer> RVN = IntStream.range(0, VN.length)
+            .boxed().collect(Collectors.toMap(i -> VN[i], i -> (Integer) i));
 
     /**
      * The short names for the voltages, formatted for text
