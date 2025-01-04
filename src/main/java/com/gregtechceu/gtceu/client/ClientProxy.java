@@ -1,5 +1,6 @@
 package com.gregtechceu.gtceu.client;
 
+import com.gregtechceu.gtceu.GTCEu;
 import com.gregtechceu.gtceu.api.GTValues;
 import com.gregtechceu.gtceu.api.data.worldgen.GTOreDefinition;
 import com.gregtechceu.gtceu.api.data.worldgen.bedrockfluid.BedrockFluidDefinition;
@@ -20,8 +21,6 @@ import com.gregtechceu.gtceu.integration.map.layer.Layers;
 import com.gregtechceu.gtceu.integration.map.layer.builtin.FluidRenderLayer;
 import com.gregtechceu.gtceu.integration.map.layer.builtin.OreRenderLayer;
 import com.gregtechceu.gtceu.utils.input.KeyBind;
-
-import com.lowdragmc.lowdraglib.Platform;
 
 import net.minecraft.client.model.BoatModel;
 import net.minecraft.client.model.ChestBoatModel;
@@ -57,7 +56,7 @@ public class ClientProxy extends CommonProxy {
     }
 
     public static void init() {
-        if (!Platform.isDatagen()) {
+        if (!GTCEu.isDataGen()) {
             ClientCacheManager.registerClientCache(GTClientCache.instance, "gtceu");
             Layers.registerLayer(OreRenderLayer::new, "ore_veins");
             Layers.registerLayer(FluidRenderLayer::new, "bedrock_fluids");
@@ -101,7 +100,7 @@ public class ClientProxy extends CommonProxy {
     @SubscribeEvent
     public void onClientSetup(FMLClientSetupEvent event) {
         if (ConfigHolder.INSTANCE.compat.minimap.toggle.ftbChunksIntegration &&
-                Platform.isModLoaded(GTValues.MODID_FTB_CHUNKS)) {
+                GTCEu.isModLoaded(GTValues.MODID_FTB_CHUNKS)) {
             FTBChunksPlugin.addEventListeners();
         }
     }

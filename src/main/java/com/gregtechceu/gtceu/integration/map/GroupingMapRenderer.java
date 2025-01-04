@@ -1,5 +1,6 @@
 package com.gregtechceu.gtceu.integration.map;
 
+import com.gregtechceu.gtceu.GTCEu;
 import com.gregtechceu.gtceu.api.GTValues;
 import com.gregtechceu.gtceu.api.data.worldgen.ores.GeneratedVeinMetadata;
 import com.gregtechceu.gtceu.api.gui.misc.ProspectorMode;
@@ -7,8 +8,6 @@ import com.gregtechceu.gtceu.config.ConfigHolder;
 import com.gregtechceu.gtceu.integration.map.ftbchunks.FTBChunksRenderer;
 import com.gregtechceu.gtceu.integration.map.journeymap.JourneymapRenderer;
 import com.gregtechceu.gtceu.integration.map.xaeros.XaerosRenderer;
-
-import com.lowdragmc.lowdraglib.Platform;
 
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.level.ChunkPos;
@@ -30,13 +29,13 @@ public class GroupingMapRenderer extends GenericMapRenderer {
     static {
         Map<String, GenericMapRenderer> renderers = new HashMap<>();
         var toggle = ConfigHolder.INSTANCE.compat.minimap.toggle;
-        if (toggle.journeyMapIntegration && Platform.isModLoaded(GTValues.MODID_JOURNEYMAP)) {
+        if (toggle.journeyMapIntegration && GTCEu.isModLoaded(GTValues.MODID_JOURNEYMAP)) {
             renderers.put(GTValues.MODID_JOURNEYMAP, new JourneymapRenderer());
         }
-        if (toggle.xaerosMapIntegration && Platform.isModLoaded(GTValues.MODID_XAEROS_MINIMAP)) {
+        if (toggle.xaerosMapIntegration && GTCEu.isModLoaded(GTValues.MODID_XAEROS_MINIMAP)) {
             renderers.put(GTValues.MODID_XAEROS_MINIMAP, new XaerosRenderer());
         }
-        if (toggle.ftbChunksIntegration && Platform.isModLoaded(GTValues.MODID_FTB_CHUNKS)) {
+        if (toggle.ftbChunksIntegration && GTCEu.isModLoaded(GTValues.MODID_FTB_CHUNKS)) {
             renderers.put(GTValues.MODID_FTB_CHUNKS, new FTBChunksRenderer());
         }
 
