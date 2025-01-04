@@ -2128,6 +2128,8 @@
   "gtceu.arc_furnace": "Arc Furnace",
   "gtceu.assembler": "Assembler",
   "gtceu.assembly_line": "Assembly Line",
+  "gtceu.auto_decomp.rotor": "Turbine Rotor",
+  "gtceu.auto_decomp.tool": "Non-electric tool",
   "gtceu.autoclave": "Autoclave",
   "gtceu.battery_buffer.average_input": "Average input: %s EU/t",
   "gtceu.battery_buffer.average_output": "Average output: %s EU/t",
